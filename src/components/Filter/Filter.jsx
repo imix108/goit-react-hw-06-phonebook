@@ -1,10 +1,12 @@
 import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { query } from '../../redux/sliceFilter'
+import { qwery } from '../../redux/sliceFilter'
 
 export const Filter = () => {
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
+
+  
   return (
     <>
       <label className={css.filterLabel} htmlFor="filter">
@@ -13,7 +15,7 @@ export const Filter = () => {
       <input
         className={css.filterInput}
         value={filter}
-        onChange={e => dispatch(query(e.currentTarget.value))}
+        onChange={e => dispatch(qwery(e.currentTarget.value))}
         type="text"
         name="filter"
         placeholder="Taras Kalina"

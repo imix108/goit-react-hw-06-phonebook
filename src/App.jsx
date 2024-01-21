@@ -8,20 +8,13 @@ export const App = () => {
   const filtered = useSelector(state => state.filter);
   const contacts = useSelector(state => state.contacts);
 
-  const filterContact = e => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filtered.toLowerCase())
-    );
-  };
-
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      <ContactList listContact={filterContact()} />
+      <ContactList contacts={contacts} filtered={filtered} />
     </div>
   );
 };
-
