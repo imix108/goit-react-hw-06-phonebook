@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { remove } from '../../redux/sliceContact';
 
-export const ContactList = ({ contacts, filtered }) => {
+export const ContactList = () => {
   const dispatch = useDispatch();
+  const filtered = useSelector(state => state.filter);
+  const contacts = useSelector(state => state.contacts);
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filtered.toLowerCase())
